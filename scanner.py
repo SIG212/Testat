@@ -173,10 +173,9 @@ def validate_1645():
         polite_sleep(f"({i+1}/{len(tickers)}) re-checking {ticker}")
         try:
             extra      = enrich_ticker(ticker)
-            gap_pct    = parse_pct(extra.get("gap",    "0"))
             change_pct = parse_pct(extra.get("change", "0"))
 
-            if gap_pct >= 2.0 and change_pct > 0:
+            if change_pct >= 5.0:
                 record = {
                     "Ticker":     ticker,
                     "Price":      extra.get("price",      "N/A"),
@@ -191,9 +190,9 @@ def validate_1645():
                     "validated_time": datetime.now(timezone.utc).isoformat(),
                 }
                 strong_buys.append(record)
-                log.info(f"  STRONG BUY: {ticker} | Gap {gap_pct:.1f}% | Change {change_pct:.1f}%")
+                log.info(f"  STRONG BUY: {ticker} | Change {change_pct:.1f}%")
             else:
-                log.info(f"  Skipped: {ticker} | Gap {gap_pct:.1f}% | Change {change_pct:.1f}%")
+                log.info(f"  Skipped: {ticker} | Change {change_pct:.1f}%")
 
         except Exception as e:
             log.warning(f"Error validating {ticker}: {e}")
