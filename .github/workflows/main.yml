@@ -75,11 +75,11 @@ jobs:
 
           git add data/watchlist_1615.json index.html
 
-          # Commit only if there are changes
           if git diff --cached --quiet; then
             echo "No changes to commit."
           else
             git commit -m "🔍 Scan 16:15 — $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git pull --rebase origin main
             git push origin HEAD
           fi
 
@@ -155,6 +155,7 @@ jobs:
             echo "No changes to commit."
           else
             git commit -m "🚀 Validate 16:45 — $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git pull --rebase origin main
             git push origin HEAD
           fi
 
