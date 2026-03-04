@@ -6,7 +6,7 @@
   <title>📈 Finviz Scanner — Speculative Dashboard</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=Syne:wght@400;600;800&display=swap" rel="stylesheet" />
   <style>
     :root {
       --accent: #22d3ee;
@@ -14,11 +14,11 @@
       --red:    #f87171;
     }
     body {
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'Syne', sans-serif;
       background: #09090b;
       color: #e4e4e7;
     }
-    .font-mono { font-family: 'JetBrains Mono', monospace; }
+    .font-mono { font-family: 'IBM Plex Mono', monospace; }
 
     /* Scanline overlay for terminal feel */
     body::before {
@@ -109,7 +109,7 @@
           <span class="w-2 h-2 rounded-full bg-emerald-400 pulse-dot"></span>
           <span class="font-mono text-xs text-zinc-400">Ultima actualizare</span>
         </div>
-        <p class="font-mono text-sm text-zinc-300">04 Mar 2026, 12:53 UTC</p>
+        <p class="font-mono text-sm text-zinc-300">04 Mar 2026, 13:14 UTC</p>
       </div>
     </div>
   </header>
@@ -118,12 +118,12 @@
   <div class="fade-up-2 grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
     <div class="stat-card p-5">
       <p class="font-mono text-[10px] text-zinc-500 uppercase tracking-widest mb-1">Watchlist 16:15</p>
-      <p class="text-3xl font-extrabold text-cyan-400">7</p>
+      <p class="text-3xl font-extrabold text-cyan-400">44</p>
       <p class="text-xs text-zinc-500 mt-1">candidați</p>
     </div>
     <div class="stat-card p-5">
       <p class="font-mono text-[10px] text-zinc-500 uppercase tracking-widest mb-1">Strong Buy 16:45</p>
-      <p class="text-3xl font-extrabold text-emerald-400">3</p>
+      <p class="text-3xl font-extrabold text-emerald-400">0</p>
       <p class="text-xs text-zinc-500 mt-1">validate</p>
     </div>
     <div class="stat-card p-5">
@@ -133,7 +133,7 @@
     </div>
     <div class="stat-card p-5">
       <p class="font-mono text-[10px] text-zinc-500 uppercase tracking-widest mb-1">Rata Selecție</p>
-      <p class="text-3xl font-extrabold text-amber-400">43%</p>
+      <p class="text-3xl font-extrabold text-amber-400">0%</p>
       <p class="text-xs text-zinc-500 mt-1">din watchlist</p>
     </div>
   </div>
@@ -156,7 +156,7 @@
         <p class="text-xs text-zinc-500 font-mono">Scan inițial — candidați speculativi</p>
       </div>
       <span class="ml-auto font-mono text-xs bg-zinc-800 border border-zinc-700 text-zinc-400 px-3 py-1 rounded-full">
-        7 acțiuni
+        44 acțiuni
       </span>
     </div>
     <div class="card overflow-hidden">
@@ -177,86 +177,530 @@
             
         <tr class="border-b border-zinc-800 hover:bg-zinc-800/40 transition-colors group">
           <td class="px-4 py-3 font-mono font-bold text-sky-400 text-sm tracking-wider group-hover:text-sky-300">
-            <a href="https://finviz.com/quote.ashx?t=ACMR" target="_blank" class="hover:underline">ACMR</a>
+            <a href="https://finviz.com/quote.ashx?t=ADBG" target="_blank" class="hover:underline">ADBG</a>
           </td>
-          <td class="px-4 py-3 font-mono text-zinc-200 text-sm">$14.32</td>
-          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+8.45%</span></td>
-          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+3.20%</span></td>
-          <td class="px-4 py-3 font-mono text-zinc-300 text-sm">4.7x</td>
-          <td class="px-4 py-3 text-xs text-zinc-400">Technology</td>
-          <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-yellow-900/60 text-yellow-300 border border-yellow-700">◆ MEDIUM</span></td>
+          <td class="px-4 py-3 font-mono text-zinc-200 text-sm">$5.85</td>
+          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+0.08%</span></td>
+          <td class="px-4 py-3 text-sm"><span class="text-zinc-500">N/A</span></td>
+          <td class="px-4 py-3 font-mono text-zinc-300 text-sm">5.93x</td>
+          <td class="px-4 py-3 text-xs text-zinc-400">Financial</td>
+          <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-zinc-800 text-zinc-400 border border-zinc-600">? N/A</span></td>
         </tr>
 
         <tr class="border-b border-zinc-800 hover:bg-zinc-800/40 transition-colors group">
           <td class="px-4 py-3 font-mono font-bold text-sky-400 text-sm tracking-wider group-hover:text-sky-300">
-            <a href="https://finviz.com/quote.ashx?t=BBAI" target="_blank" class="hover:underline">BBAI</a>
+            <a href="https://finviz.com/quote.ashx?t=AURE" target="_blank" class="hover:underline">AURE</a>
           </td>
-          <td class="px-4 py-3 font-mono text-zinc-200 text-sm">$3.87</td>
-          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+12.10%</span></td>
-          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+5.80%</span></td>
-          <td class="px-4 py-3 font-mono text-zinc-300 text-sm">6.2x</td>
-          <td class="px-4 py-3 text-xs text-zinc-400">Technology</td>
-          <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-orange-900/60 text-orange-300 border border-orange-700">▲ HIGH</span></td>
+          <td class="px-4 py-3 font-mono text-zinc-200 text-sm">$2.99</td>
+          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+0.31%</span></td>
+          <td class="px-4 py-3 text-sm"><span class="text-zinc-500">N/A</span></td>
+          <td class="px-4 py-3 font-mono text-zinc-300 text-sm">5.72x</td>
+          <td class="px-4 py-3 text-xs text-zinc-400">Financial</td>
+          <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-zinc-800 text-zinc-400 border border-zinc-600">? N/A</span></td>
         </tr>
 
         <tr class="border-b border-zinc-800 hover:bg-zinc-800/40 transition-colors group">
           <td class="px-4 py-3 font-mono font-bold text-sky-400 text-sm tracking-wider group-hover:text-sky-300">
-            <a href="https://finviz.com/quote.ashx?t=EEIQ" target="_blank" class="hover:underline">EEIQ</a>
+            <a href="https://finviz.com/quote.ashx?t=AVXX" target="_blank" class="hover:underline">AVXX</a>
           </td>
-          <td class="px-4 py-3 font-mono text-zinc-200 text-sm">$7.14</td>
-          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+6.30%</span></td>
-          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+2.90%</span></td>
-          <td class="px-4 py-3 font-mono text-zinc-300 text-sm">3.4x</td>
-          <td class="px-4 py-3 text-xs text-zinc-400">Healthcare</td>
-          <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-red-900/60 text-red-300 border border-red-700">⚠ EXTREME</span></td>
+          <td class="px-4 py-3 font-mono text-zinc-200 text-sm">$5.62</td>
+          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+0.19%</span></td>
+          <td class="px-4 py-3 text-sm"><span class="text-zinc-500">N/A</span></td>
+          <td class="px-4 py-3 font-mono text-zinc-300 text-sm">10.94x</td>
+          <td class="px-4 py-3 text-xs text-zinc-400">Financial</td>
+          <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-zinc-800 text-zinc-400 border border-zinc-600">? N/A</span></td>
         </tr>
 
         <tr class="border-b border-zinc-800 hover:bg-zinc-800/40 transition-colors group">
           <td class="px-4 py-3 font-mono font-bold text-sky-400 text-sm tracking-wider group-hover:text-sky-300">
-            <a href="https://finviz.com/quote.ashx?t=MVST" target="_blank" class="hover:underline">MVST</a>
+            <a href="https://finviz.com/quote.ashx?t=BHM" target="_blank" class="hover:underline">BHM</a>
           </td>
-          <td class="px-4 py-3 font-mono text-zinc-200 text-sm">$1.92</td>
-          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+9.80%</span></td>
-          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+4.10%</span></td>
-          <td class="px-4 py-3 font-mono text-zinc-300 text-sm">5.1x</td>
-          <td class="px-4 py-3 text-xs text-zinc-400">Consumer Cyclical</td>
-          <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-orange-900/60 text-orange-300 border border-orange-700">▲ HIGH</span></td>
+          <td class="px-4 py-3 font-mono text-zinc-200 text-sm">$11.7</td>
+          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+0.11%</span></td>
+          <td class="px-4 py-3 text-sm"><span class="text-zinc-500">N/A</span></td>
+          <td class="px-4 py-3 font-mono text-zinc-300 text-sm">4.49x</td>
+          <td class="px-4 py-3 text-xs text-zinc-400">Real Estate</td>
+          <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-zinc-800 text-zinc-400 border border-zinc-600">? N/A</span></td>
         </tr>
 
         <tr class="border-b border-zinc-800 hover:bg-zinc-800/40 transition-colors group">
           <td class="px-4 py-3 font-mono font-bold text-sky-400 text-sm tracking-wider group-hover:text-sky-300">
-            <a href="https://finviz.com/quote.ashx?t=NKLA" target="_blank" class="hover:underline">NKLA</a>
+            <a href="https://finviz.com/quote.ashx?t=BRCC" target="_blank" class="hover:underline">BRCC</a>
           </td>
-          <td class="px-4 py-3 font-mono text-zinc-200 text-sm">$0.41</td>
-          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+15.20%</span></td>
-          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+7.30%</span></td>
-          <td class="px-4 py-3 font-mono text-zinc-300 text-sm">8.9x</td>
+          <td class="px-4 py-3 font-mono text-zinc-200 text-sm">$0.81</td>
+          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+0.25%</span></td>
+          <td class="px-4 py-3 text-sm"><span class="text-zinc-500">N/A</span></td>
+          <td class="px-4 py-3 font-mono text-zinc-300 text-sm">3.37x</td>
+          <td class="px-4 py-3 text-xs text-zinc-400">Consumer Defensive</td>
+          <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-zinc-800 text-zinc-400 border border-zinc-600">? N/A</span></td>
+        </tr>
+
+        <tr class="border-b border-zinc-800 hover:bg-zinc-800/40 transition-colors group">
+          <td class="px-4 py-3 font-mono font-bold text-sky-400 text-sm tracking-wider group-hover:text-sky-300">
+            <a href="https://finviz.com/quote.ashx?t=BZQ" target="_blank" class="hover:underline">BZQ</a>
+          </td>
+          <td class="px-4 py-3 font-mono text-zinc-200 text-sm">$11.12</td>
+          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+0.09%</span></td>
+          <td class="px-4 py-3 text-sm"><span class="text-zinc-500">N/A</span></td>
+          <td class="px-4 py-3 font-mono text-zinc-300 text-sm">3.86x</td>
+          <td class="px-4 py-3 text-xs text-zinc-400">Financial</td>
+          <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-zinc-800 text-zinc-400 border border-zinc-600">? N/A</span></td>
+        </tr>
+
+        <tr class="border-b border-zinc-800 hover:bg-zinc-800/40 transition-colors group">
+          <td class="px-4 py-3 font-mono font-bold text-sky-400 text-sm tracking-wider group-hover:text-sky-300">
+            <a href="https://finviz.com/quote.ashx?t=CCUP" target="_blank" class="hover:underline">CCUP</a>
+          </td>
+          <td class="px-4 py-3 font-mono text-zinc-200 text-sm">$5.63</td>
+          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+0.07%</span></td>
+          <td class="px-4 py-3 text-sm"><span class="text-zinc-500">N/A</span></td>
+          <td class="px-4 py-3 font-mono text-zinc-300 text-sm">4.96x</td>
+          <td class="px-4 py-3 text-xs text-zinc-400">Financial</td>
+          <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-zinc-800 text-zinc-400 border border-zinc-600">? N/A</span></td>
+        </tr>
+
+        <tr class="border-b border-zinc-800 hover:bg-zinc-800/40 transition-colors group">
+          <td class="px-4 py-3 font-mono font-bold text-sky-400 text-sm tracking-wider group-hover:text-sky-300">
+            <a href="https://finviz.com/quote.ashx?t=CLWT" target="_blank" class="hover:underline">CLWT</a>
+          </td>
+          <td class="px-4 py-3 font-mono text-zinc-200 text-sm">$1.31</td>
+          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+0.08%</span></td>
+          <td class="px-4 py-3 text-sm"><span class="text-zinc-500">N/A</span></td>
+          <td class="px-4 py-3 font-mono text-zinc-300 text-sm">7.48x</td>
           <td class="px-4 py-3 text-xs text-zinc-400">Industrials</td>
-          <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-red-900/60 text-red-300 border border-red-700">⚠ EXTREME</span></td>
+          <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-zinc-800 text-zinc-400 border border-zinc-600">? N/A</span></td>
         </tr>
 
         <tr class="border-b border-zinc-800 hover:bg-zinc-800/40 transition-colors group">
           <td class="px-4 py-3 font-mono font-bold text-sky-400 text-sm tracking-wider group-hover:text-sky-300">
-            <a href="https://finviz.com/quote.ashx?t=SOUN" target="_blank" class="hover:underline">SOUN</a>
+            <a href="https://finviz.com/quote.ashx?t=CRCG" target="_blank" class="hover:underline">CRCG</a>
           </td>
-          <td class="px-4 py-3 font-mono text-zinc-200 text-sm">$8.75</td>
-          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+7.60%</span></td>
-          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+3.80%</span></td>
-          <td class="px-4 py-3 font-mono text-zinc-300 text-sm">4.3x</td>
-          <td class="px-4 py-3 text-xs text-zinc-400">Technology</td>
-          <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-yellow-900/60 text-yellow-300 border border-yellow-700">◆ MEDIUM</span></td>
+          <td class="px-4 py-3 font-mono text-zinc-200 text-sm">$3.33</td>
+          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+0.07%</span></td>
+          <td class="px-4 py-3 text-sm"><span class="text-zinc-500">N/A</span></td>
+          <td class="px-4 py-3 font-mono text-zinc-300 text-sm">4.83x</td>
+          <td class="px-4 py-3 text-xs text-zinc-400">Financial</td>
+          <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-zinc-800 text-zinc-400 border border-zinc-600">? N/A</span></td>
         </tr>
 
         <tr class="border-b border-zinc-800 hover:bg-zinc-800/40 transition-colors group">
           <td class="px-4 py-3 font-mono font-bold text-sky-400 text-sm tracking-wider group-hover:text-sky-300">
-            <a href="https://finviz.com/quote.ashx?t=CPOP" target="_blank" class="hover:underline">CPOP</a>
+            <a href="https://finviz.com/quote.ashx?t=EDSA" target="_blank" class="hover:underline">EDSA</a>
           </td>
-          <td class="px-4 py-3 font-mono text-zinc-200 text-sm">$2.33</td>
-          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+5.40%</span></td>
-          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+1.80%</span></td>
-          <td class="px-4 py-3 font-mono text-zinc-300 text-sm">3.1x</td>
+          <td class="px-4 py-3 font-mono text-zinc-200 text-sm">$4.35</td>
+          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+0.91%</span></td>
+          <td class="px-4 py-3 text-sm"><span class="text-zinc-500">N/A</span></td>
+          <td class="px-4 py-3 font-mono text-zinc-300 text-sm">10.47x</td>
+          <td class="px-4 py-3 text-xs text-zinc-400">Healthcare</td>
+          <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-zinc-800 text-zinc-400 border border-zinc-600">? N/A</span></td>
+        </tr>
+
+        <tr class="border-b border-zinc-800 hover:bg-zinc-800/40 transition-colors group">
+          <td class="px-4 py-3 font-mono font-bold text-sky-400 text-sm tracking-wider group-hover:text-sky-300">
+            <a href="https://finviz.com/quote.ashx?t=EEV" target="_blank" class="hover:underline">EEV</a>
+          </td>
+          <td class="px-4 py-3 font-mono text-zinc-200 text-sm">$16.34</td>
+          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+0.10%</span></td>
+          <td class="px-4 py-3 text-sm"><span class="text-zinc-500">N/A</span></td>
+          <td class="px-4 py-3 font-mono text-zinc-300 text-sm">4.66x</td>
+          <td class="px-4 py-3 text-xs text-zinc-400">Financial</td>
+          <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-zinc-800 text-zinc-400 border border-zinc-600">? N/A</span></td>
+        </tr>
+
+        <tr class="border-b border-zinc-800 hover:bg-zinc-800/40 transition-colors group">
+          <td class="px-4 py-3 font-mono font-bold text-sky-400 text-sm tracking-wider group-hover:text-sky-300">
+            <a href="https://finviz.com/quote.ashx?t=EFU" target="_blank" class="hover:underline">EFU</a>
+          </td>
+          <td class="px-4 py-3 font-mono text-zinc-200 text-sm">$8.35</td>
+          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+0.06%</span></td>
+          <td class="px-4 py-3 text-sm"><span class="text-zinc-500">N/A</span></td>
+          <td class="px-4 py-3 font-mono text-zinc-300 text-sm">4.76x</td>
+          <td class="px-4 py-3 text-xs text-zinc-400">Financial</td>
+          <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-zinc-800 text-zinc-400 border border-zinc-600">? N/A</span></td>
+        </tr>
+
+        <tr class="border-b border-zinc-800 hover:bg-zinc-800/40 transition-colors group">
+          <td class="px-4 py-3 font-mono font-bold text-sky-400 text-sm tracking-wider group-hover:text-sky-300">
+            <a href="https://finviz.com/quote.ashx?t=EHTH" target="_blank" class="hover:underline">EHTH</a>
+          </td>
+          <td class="px-4 py-3 font-mono text-zinc-200 text-sm">$1.56</td>
+          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+0.26%</span></td>
+          <td class="px-4 py-3 text-sm"><span class="text-zinc-500">N/A</span></td>
+          <td class="px-4 py-3 font-mono text-zinc-300 text-sm">5.25x</td>
+          <td class="px-4 py-3 text-xs text-zinc-400">Financial</td>
+          <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-zinc-800 text-zinc-400 border border-zinc-600">? N/A</span></td>
+        </tr>
+
+        <tr class="border-b border-zinc-800 hover:bg-zinc-800/40 transition-colors group">
+          <td class="px-4 py-3 font-mono font-bold text-sky-400 text-sm tracking-wider group-hover:text-sky-300">
+            <a href="https://finviz.com/quote.ashx?t=EONR" target="_blank" class="hover:underline">EONR</a>
+          </td>
+          <td class="px-4 py-3 font-mono text-zinc-200 text-sm">$0.64</td>
+          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+0.28%</span></td>
+          <td class="px-4 py-3 text-sm"><span class="text-zinc-500">N/A</span></td>
+          <td class="px-4 py-3 font-mono text-zinc-300 text-sm">66.11x</td>
+          <td class="px-4 py-3 text-xs text-zinc-400">Energy</td>
+          <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-zinc-800 text-zinc-400 border border-zinc-600">? N/A</span></td>
+        </tr>
+
+        <tr class="border-b border-zinc-800 hover:bg-zinc-800/40 transition-colors group">
+          <td class="px-4 py-3 font-mono font-bold text-sky-400 text-sm tracking-wider group-hover:text-sky-300">
+            <a href="https://finviz.com/quote.ashx?t=EP" target="_blank" class="hover:underline">EP</a>
+          </td>
+          <td class="px-4 py-3 font-mono text-zinc-200 text-sm">$3.77</td>
+          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+0.06%</span></td>
+          <td class="px-4 py-3 text-sm"><span class="text-zinc-500">N/A</span></td>
+          <td class="px-4 py-3 font-mono text-zinc-300 text-sm">4.71x</td>
+          <td class="px-4 py-3 text-xs text-zinc-400">Energy</td>
+          <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-zinc-800 text-zinc-400 border border-zinc-600">? N/A</span></td>
+        </tr>
+
+        <tr class="border-b border-zinc-800 hover:bg-zinc-800/40 transition-colors group">
+          <td class="px-4 py-3 font-mono font-bold text-sky-400 text-sm tracking-wider group-hover:text-sky-300">
+            <a href="https://finviz.com/quote.ashx?t=GXAI" target="_blank" class="hover:underline">GXAI</a>
+          </td>
+          <td class="px-4 py-3 font-mono text-zinc-200 text-sm">$1.32</td>
+          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+0.16%</span></td>
+          <td class="px-4 py-3 text-sm"><span class="text-zinc-500">N/A</span></td>
+          <td class="px-4 py-3 font-mono text-zinc-300 text-sm">3.65x</td>
           <td class="px-4 py-3 text-xs text-zinc-400">Communication Services</td>
-          <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-orange-900/60 text-orange-300 border border-orange-700">▲ HIGH</span></td>
+          <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-zinc-800 text-zinc-400 border border-zinc-600">? N/A</span></td>
+        </tr>
+
+        <tr class="border-b border-zinc-800 hover:bg-zinc-800/40 transition-colors group">
+          <td class="px-4 py-3 font-mono font-bold text-sky-400 text-sm tracking-wider group-hover:text-sky-300">
+            <a href="https://finviz.com/quote.ashx?t=HCWB" target="_blank" class="hover:underline">HCWB</a>
+          </td>
+          <td class="px-4 py-3 font-mono text-zinc-200 text-sm">$0.66</td>
+          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+0.20%</span></td>
+          <td class="px-4 py-3 text-sm"><span class="text-zinc-500">N/A</span></td>
+          <td class="px-4 py-3 font-mono text-zinc-300 text-sm">4.79x</td>
+          <td class="px-4 py-3 text-xs text-zinc-400">Healthcare</td>
+          <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-zinc-800 text-zinc-400 border border-zinc-600">? N/A</span></td>
+        </tr>
+
+        <tr class="border-b border-zinc-800 hover:bg-zinc-800/40 transition-colors group">
+          <td class="px-4 py-3 font-mono font-bold text-sky-400 text-sm tracking-wider group-hover:text-sky-300">
+            <a href="https://finviz.com/quote.ashx?t=HIBS" target="_blank" class="hover:underline">HIBS</a>
+          </td>
+          <td class="px-4 py-3 font-mono text-zinc-200 text-sm">$4.48</td>
+          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+0.06%</span></td>
+          <td class="px-4 py-3 text-sm"><span class="text-zinc-500">N/A</span></td>
+          <td class="px-4 py-3 font-mono text-zinc-300 text-sm">8.03x</td>
+          <td class="px-4 py-3 text-xs text-zinc-400">Financial</td>
+          <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-zinc-800 text-zinc-400 border border-zinc-600">? N/A</span></td>
+        </tr>
+
+        <tr class="border-b border-zinc-800 hover:bg-zinc-800/40 transition-colors group">
+          <td class="px-4 py-3 font-mono font-bold text-sky-400 text-sm tracking-wider group-hover:text-sky-300">
+            <a href="https://finviz.com/quote.ashx?t=LAW" target="_blank" class="hover:underline">LAW</a>
+          </td>
+          <td class="px-4 py-3 font-mono text-zinc-200 text-sm">$3.93</td>
+          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+0.12%</span></td>
+          <td class="px-4 py-3 text-sm"><span class="text-zinc-500">N/A</span></td>
+          <td class="px-4 py-3 font-mono text-zinc-300 text-sm">3.28x</td>
+          <td class="px-4 py-3 text-xs text-zinc-400">Technology</td>
+          <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-zinc-800 text-zinc-400 border border-zinc-600">? N/A</span></td>
+        </tr>
+
+        <tr class="border-b border-zinc-800 hover:bg-zinc-800/40 transition-colors group">
+          <td class="px-4 py-3 font-mono font-bold text-sky-400 text-sm tracking-wider group-hover:text-sky-300">
+            <a href="https://finviz.com/quote.ashx?t=MARPS" target="_blank" class="hover:underline">MARPS</a>
+          </td>
+          <td class="px-4 py-3 font-mono text-zinc-200 text-sm">$5.84</td>
+          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+0.13%</span></td>
+          <td class="px-4 py-3 text-sm"><span class="text-zinc-500">N/A</span></td>
+          <td class="px-4 py-3 font-mono text-zinc-300 text-sm">10.28x</td>
+          <td class="px-4 py-3 text-xs text-zinc-400">Energy</td>
+          <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-zinc-800 text-zinc-400 border border-zinc-600">? N/A</span></td>
+        </tr>
+
+        <tr class="border-b border-zinc-800 hover:bg-zinc-800/40 transition-colors group">
+          <td class="px-4 py-3 font-mono font-bold text-sky-400 text-sm tracking-wider group-hover:text-sky-300">
+            <a href="https://finviz.com/quote.ashx?t=MGN" target="_blank" class="hover:underline">MGN</a>
+          </td>
+          <td class="px-4 py-3 font-mono text-zinc-200 text-sm">$2.98</td>
+          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+0.23%</span></td>
+          <td class="px-4 py-3 text-sm"><span class="text-zinc-500">N/A</span></td>
+          <td class="px-4 py-3 font-mono text-zinc-300 text-sm">14.85x</td>
+          <td class="px-4 py-3 text-xs text-zinc-400">Industrials</td>
+          <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-zinc-800 text-zinc-400 border border-zinc-600">? N/A</span></td>
+        </tr>
+
+        <tr class="border-b border-zinc-800 hover:bg-zinc-800/40 transition-colors group">
+          <td class="px-4 py-3 font-mono font-bold text-sky-400 text-sm tracking-wider group-hover:text-sky-300">
+            <a href="https://finviz.com/quote.ashx?t=MOBX" target="_blank" class="hover:underline">MOBX</a>
+          </td>
+          <td class="px-4 py-3 font-mono text-zinc-200 text-sm">$1.12</td>
+          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+5.33%</span></td>
+          <td class="px-4 py-3 text-sm"><span class="text-zinc-500">N/A</span></td>
+          <td class="px-4 py-3 font-mono text-zinc-300 text-sm">84.30x</td>
+          <td class="px-4 py-3 text-xs text-zinc-400">Technology</td>
+          <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-zinc-800 text-zinc-400 border border-zinc-600">? N/A</span></td>
+        </tr>
+
+        <tr class="border-b border-zinc-800 hover:bg-zinc-800/40 transition-colors group">
+          <td class="px-4 py-3 font-mono font-bold text-sky-400 text-sm tracking-wider group-hover:text-sky-300">
+            <a href="https://finviz.com/quote.ashx?t=MODD" target="_blank" class="hover:underline">MODD</a>
+          </td>
+          <td class="px-4 py-3 font-mono text-zinc-200 text-sm">$0.17</td>
+          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+0.07%</span></td>
+          <td class="px-4 py-3 text-sm"><span class="text-zinc-500">N/A</span></td>
+          <td class="px-4 py-3 font-mono text-zinc-300 text-sm">19.36x</td>
+          <td class="px-4 py-3 text-xs text-zinc-400">Healthcare</td>
+          <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-zinc-800 text-zinc-400 border border-zinc-600">? N/A</span></td>
+        </tr>
+
+        <tr class="border-b border-zinc-800 hover:bg-zinc-800/40 transition-colors group">
+          <td class="px-4 py-3 font-mono font-bold text-sky-400 text-sm tracking-wider group-hover:text-sky-300">
+            <a href="https://finviz.com/quote.ashx?t=NPT" target="_blank" class="hover:underline">NPT</a>
+          </td>
+          <td class="px-4 py-3 font-mono text-zinc-200 text-sm">$10.28</td>
+          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+0.82%</span></td>
+          <td class="px-4 py-3 text-sm"><span class="text-zinc-500">N/A</span></td>
+          <td class="px-4 py-3 font-mono text-zinc-300 text-sm">21.63x</td>
+          <td class="px-4 py-3 text-xs text-zinc-400">Consumer Cyclical</td>
+          <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-zinc-800 text-zinc-400 border border-zinc-600">? N/A</span></td>
+        </tr>
+
+        <tr class="border-b border-zinc-800 hover:bg-zinc-800/40 transition-colors group">
+          <td class="px-4 py-3 font-mono font-bold text-sky-400 text-sm tracking-wider group-hover:text-sky-300">
+            <a href="https://finviz.com/quote.ashx?t=ONCO" target="_blank" class="hover:underline">ONCO</a>
+          </td>
+          <td class="px-4 py-3 font-mono text-zinc-200 text-sm">$0.72</td>
+          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+0.11%</span></td>
+          <td class="px-4 py-3 text-sm"><span class="text-zinc-500">N/A</span></td>
+          <td class="px-4 py-3 font-mono text-zinc-300 text-sm">19.65x</td>
+          <td class="px-4 py-3 text-xs text-zinc-400">Healthcare</td>
+          <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-zinc-800 text-zinc-400 border border-zinc-600">? N/A</span></td>
+        </tr>
+
+        <tr class="border-b border-zinc-800 hover:bg-zinc-800/40 transition-colors group">
+          <td class="px-4 py-3 font-mono font-bold text-sky-400 text-sm tracking-wider group-hover:text-sky-300">
+            <a href="https://finviz.com/quote.ashx?t=PLUL" target="_blank" class="hover:underline">PLUL</a>
+          </td>
+          <td class="px-4 py-3 font-mono text-zinc-200 text-sm">$12.21</td>
+          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+0.42%</span></td>
+          <td class="px-4 py-3 text-sm"><span class="text-zinc-500">N/A</span></td>
+          <td class="px-4 py-3 font-mono text-zinc-300 text-sm">7.51x</td>
+          <td class="px-4 py-3 text-xs text-zinc-400">Financial</td>
+          <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-zinc-800 text-zinc-400 border border-zinc-600">? N/A</span></td>
+        </tr>
+
+        <tr class="border-b border-zinc-800 hover:bg-zinc-800/40 transition-colors group">
+          <td class="px-4 py-3 font-mono font-bold text-sky-400 text-sm tracking-wider group-hover:text-sky-300">
+            <a href="https://finviz.com/quote.ashx?t=PRSO" target="_blank" class="hover:underline">PRSO</a>
+          </td>
+          <td class="px-4 py-3 font-mono text-zinc-200 text-sm">$0.91</td>
+          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+0.07%</span></td>
+          <td class="px-4 py-3 text-sm"><span class="text-zinc-500">N/A</span></td>
+          <td class="px-4 py-3 font-mono text-zinc-300 text-sm">4.65x</td>
+          <td class="px-4 py-3 text-xs text-zinc-400">Technology</td>
+          <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-zinc-800 text-zinc-400 border border-zinc-600">? N/A</span></td>
+        </tr>
+
+        <tr class="border-b border-zinc-800 hover:bg-zinc-800/40 transition-colors group">
+          <td class="px-4 py-3 font-mono font-bold text-sky-400 text-sm tracking-wider group-hover:text-sky-300">
+            <a href="https://finviz.com/quote.ashx?t=PULM" target="_blank" class="hover:underline">PULM</a>
+          </td>
+          <td class="px-4 py-3 font-mono text-zinc-200 text-sm">$2.07</td>
+          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+0.10%</span></td>
+          <td class="px-4 py-3 text-sm"><span class="text-zinc-500">N/A</span></td>
+          <td class="px-4 py-3 font-mono text-zinc-300 text-sm">6.76x</td>
+          <td class="px-4 py-3 text-xs text-zinc-400">Healthcare</td>
+          <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-zinc-800 text-zinc-400 border border-zinc-600">? N/A</span></td>
+        </tr>
+
+        <tr class="border-b border-zinc-800 hover:bg-zinc-800/40 transition-colors group">
+          <td class="px-4 py-3 font-mono font-bold text-sky-400 text-sm tracking-wider group-hover:text-sky-300">
+            <a href="https://finviz.com/quote.ashx?t=RCAT" target="_blank" class="hover:underline">RCAT</a>
+          </td>
+          <td class="px-4 py-3 font-mono text-zinc-200 text-sm">$14.7</td>
+          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+0.08%</span></td>
+          <td class="px-4 py-3 text-sm"><span class="text-zinc-500">N/A</span></td>
+          <td class="px-4 py-3 font-mono text-zinc-300 text-sm">3.25x</td>
+          <td class="px-4 py-3 text-xs text-zinc-400">Industrials</td>
+          <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-zinc-800 text-zinc-400 border border-zinc-600">? N/A</span></td>
+        </tr>
+
+        <tr class="border-b border-zinc-800 hover:bg-zinc-800/40 transition-colors group">
+          <td class="px-4 py-3 font-mono font-bold text-sky-400 text-sm tracking-wider group-hover:text-sky-300">
+            <a href="https://finviz.com/quote.ashx?t=RUBI" target="_blank" class="hover:underline">RUBI</a>
+          </td>
+          <td class="px-4 py-3 font-mono text-zinc-200 text-sm">$1.24</td>
+          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+0.23%</span></td>
+          <td class="px-4 py-3 text-sm"><span class="text-zinc-500">N/A</span></td>
+          <td class="px-4 py-3 font-mono text-zinc-300 text-sm">26.88x</td>
+          <td class="px-4 py-3 text-xs text-zinc-400">Industrials</td>
+          <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-zinc-800 text-zinc-400 border border-zinc-600">? N/A</span></td>
+        </tr>
+
+        <tr class="border-b border-zinc-800 hover:bg-zinc-800/40 transition-colors group">
+          <td class="px-4 py-3 font-mono font-bold text-sky-400 text-sm tracking-wider group-hover:text-sky-300">
+            <a href="https://finviz.com/quote.ashx?t=RYOJ" target="_blank" class="hover:underline">RYOJ</a>
+          </td>
+          <td class="px-4 py-3 font-mono text-zinc-200 text-sm">$2.75</td>
+          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+0.07%</span></td>
+          <td class="px-4 py-3 text-sm"><span class="text-zinc-500">N/A</span></td>
+          <td class="px-4 py-3 font-mono text-zinc-300 text-sm">25.16x</td>
+          <td class="px-4 py-3 text-xs text-zinc-400">Industrials</td>
+          <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-zinc-800 text-zinc-400 border border-zinc-600">? N/A</span></td>
+        </tr>
+
+        <tr class="border-b border-zinc-800 hover:bg-zinc-800/40 transition-colors group">
+          <td class="px-4 py-3 font-mono font-bold text-sky-400 text-sm tracking-wider group-hover:text-sky-300">
+            <a href="https://finviz.com/quote.ashx?t=SEM" target="_blank" class="hover:underline">SEM</a>
+          </td>
+          <td class="px-4 py-3 font-mono text-zinc-200 text-sm">$16.26</td>
+          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+0.08%</span></td>
+          <td class="px-4 py-3 text-sm"><span class="text-zinc-500">N/A</span></td>
+          <td class="px-4 py-3 font-mono text-zinc-300 text-sm">11.83x</td>
+          <td class="px-4 py-3 text-xs text-zinc-400">Healthcare</td>
+          <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-zinc-800 text-zinc-400 border border-zinc-600">? N/A</span></td>
+        </tr>
+
+        <tr class="border-b border-zinc-800 hover:bg-zinc-800/40 transition-colors group">
+          <td class="px-4 py-3 font-mono font-bold text-sky-400 text-sm tracking-wider group-hover:text-sky-300">
+            <a href="https://finviz.com/quote.ashx?t=SPWH" target="_blank" class="hover:underline">SPWH</a>
+          </td>
+          <td class="px-4 py-3 font-mono text-zinc-200 text-sm">$1.48</td>
+          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+0.29%</span></td>
+          <td class="px-4 py-3 text-sm"><span class="text-zinc-500">N/A</span></td>
+          <td class="px-4 py-3 font-mono text-zinc-300 text-sm">6.60x</td>
+          <td class="px-4 py-3 text-xs text-zinc-400">Consumer Cyclical</td>
+          <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-zinc-800 text-zinc-400 border border-zinc-600">? N/A</span></td>
+        </tr>
+
+        <tr class="border-b border-zinc-800 hover:bg-zinc-800/40 transition-colors group">
+          <td class="px-4 py-3 font-mono font-bold text-sky-400 text-sm tracking-wider group-hover:text-sky-300">
+            <a href="https://finviz.com/quote.ashx?t=STSM" target="_blank" class="hover:underline">STSM</a>
+          </td>
+          <td class="px-4 py-3 font-mono text-zinc-200 text-sm">$11.49</td>
+          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+0.09%</span></td>
+          <td class="px-4 py-3 text-sm"><span class="text-zinc-500">N/A</span></td>
+          <td class="px-4 py-3 font-mono text-zinc-300 text-sm">3.85x</td>
+          <td class="px-4 py-3 text-xs text-zinc-400">Financial</td>
+          <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-zinc-800 text-zinc-400 border border-zinc-600">? N/A</span></td>
+        </tr>
+
+        <tr class="border-b border-zinc-800 hover:bg-zinc-800/40 transition-colors group">
+          <td class="px-4 py-3 font-mono font-bold text-sky-400 text-sm tracking-wider group-hover:text-sky-300">
+            <a href="https://finviz.com/quote.ashx?t=SVRN" target="_blank" class="hover:underline">SVRN</a>
+          </td>
+          <td class="px-4 py-3 font-mono text-zinc-200 text-sm">$0.64</td>
+          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+0.47%</span></td>
+          <td class="px-4 py-3 text-sm"><span class="text-zinc-500">N/A</span></td>
+          <td class="px-4 py-3 font-mono text-zinc-300 text-sm">232.89x</td>
+          <td class="px-4 py-3 text-xs text-zinc-400">Industrials</td>
+          <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-zinc-800 text-zinc-400 border border-zinc-600">? N/A</span></td>
+        </tr>
+
+        <tr class="border-b border-zinc-800 hover:bg-zinc-800/40 transition-colors group">
+          <td class="px-4 py-3 font-mono font-bold text-sky-400 text-sm tracking-wider group-hover:text-sky-300">
+            <a href="https://finviz.com/quote.ashx?t=SYNX" target="_blank" class="hover:underline">SYNX</a>
+          </td>
+          <td class="px-4 py-3 font-mono text-zinc-200 text-sm">$1.18</td>
+          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+0.06%</span></td>
+          <td class="px-4 py-3 text-sm"><span class="text-zinc-500">N/A</span></td>
+          <td class="px-4 py-3 font-mono text-zinc-300 text-sm">3.94x</td>
+          <td class="px-4 py-3 text-xs text-zinc-400">Technology</td>
+          <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-zinc-800 text-zinc-400 border border-zinc-600">? N/A</span></td>
+        </tr>
+
+        <tr class="border-b border-zinc-800 hover:bg-zinc-800/40 transition-colors group">
+          <td class="px-4 py-3 font-mono font-bold text-sky-400 text-sm tracking-wider group-hover:text-sky-300">
+            <a href="https://finviz.com/quote.ashx?t=TMDE" target="_blank" class="hover:underline">TMDE</a>
+          </td>
+          <td class="px-4 py-3 font-mono text-zinc-200 text-sm">$4.04</td>
+          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+0.32%</span></td>
+          <td class="px-4 py-3 text-sm"><span class="text-zinc-500">N/A</span></td>
+          <td class="px-4 py-3 font-mono text-zinc-300 text-sm">12.00x</td>
+          <td class="px-4 py-3 text-xs text-zinc-400">Energy</td>
+          <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-zinc-800 text-zinc-400 border border-zinc-600">? N/A</span></td>
+        </tr>
+
+        <tr class="border-b border-zinc-800 hover:bg-zinc-800/40 transition-colors group">
+          <td class="px-4 py-3 font-mono font-bold text-sky-400 text-sm tracking-wider group-hover:text-sky-300">
+            <a href="https://finviz.com/quote.ashx?t=TPET" target="_blank" class="hover:underline">TPET</a>
+          </td>
+          <td class="px-4 py-3 font-mono text-zinc-200 text-sm">$1.95</td>
+          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+0.74%</span></td>
+          <td class="px-4 py-3 text-sm"><span class="text-zinc-500">N/A</span></td>
+          <td class="px-4 py-3 font-mono text-zinc-300 text-sm">36.03x</td>
+          <td class="px-4 py-3 text-xs text-zinc-400">Energy</td>
+          <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-zinc-800 text-zinc-400 border border-zinc-600">? N/A</span></td>
+        </tr>
+
+        <tr class="border-b border-zinc-800 hover:bg-zinc-800/40 transition-colors group">
+          <td class="px-4 py-3 font-mono font-bold text-sky-400 text-sm tracking-wider group-hover:text-sky-300">
+            <a href="https://finviz.com/quote.ashx?t=TURB" target="_blank" class="hover:underline">TURB</a>
+          </td>
+          <td class="px-4 py-3 font-mono text-zinc-200 text-sm">$2.88</td>
+          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+1.10%</span></td>
+          <td class="px-4 py-3 text-sm"><span class="text-zinc-500">N/A</span></td>
+          <td class="px-4 py-3 font-mono text-zinc-300 text-sm">16.33x</td>
+          <td class="px-4 py-3 text-xs text-zinc-400">Technology</td>
+          <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-zinc-800 text-zinc-400 border border-zinc-600">? N/A</span></td>
+        </tr>
+
+        <tr class="border-b border-zinc-800 hover:bg-zinc-800/40 transition-colors group">
+          <td class="px-4 py-3 font-mono font-bold text-sky-400 text-sm tracking-wider group-hover:text-sky-300">
+            <a href="https://finviz.com/quote.ashx?t=UOKA" target="_blank" class="hover:underline">UOKA</a>
+          </td>
+          <td class="px-4 py-3 font-mono text-zinc-200 text-sm">$0.08</td>
+          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+0.15%</span></td>
+          <td class="px-4 py-3 text-sm"><span class="text-zinc-500">N/A</span></td>
+          <td class="px-4 py-3 font-mono text-zinc-300 text-sm">6.84x</td>
+          <td class="px-4 py-3 text-xs text-zinc-400">Consumer Cyclical</td>
+          <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-zinc-800 text-zinc-400 border border-zinc-600">? N/A</span></td>
+        </tr>
+
+        <tr class="border-b border-zinc-800 hover:bg-zinc-800/40 transition-colors group">
+          <td class="px-4 py-3 font-mono font-bold text-sky-400 text-sm tracking-wider group-hover:text-sky-300">
+            <a href="https://finviz.com/quote.ashx?t=USEG" target="_blank" class="hover:underline">USEG</a>
+          </td>
+          <td class="px-4 py-3 font-mono text-zinc-200 text-sm">$1.43</td>
+          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+0.24%</span></td>
+          <td class="px-4 py-3 text-sm"><span class="text-zinc-500">N/A</span></td>
+          <td class="px-4 py-3 font-mono text-zinc-300 text-sm">17.14x</td>
+          <td class="px-4 py-3 text-xs text-zinc-400">Energy</td>
+          <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-zinc-800 text-zinc-400 border border-zinc-600">? N/A</span></td>
+        </tr>
+
+        <tr class="border-b border-zinc-800 hover:bg-zinc-800/40 transition-colors group">
+          <td class="px-4 py-3 font-mono font-bold text-sky-400 text-sm tracking-wider group-hover:text-sky-300">
+            <a href="https://finviz.com/quote.ashx?t=UVIX" target="_blank" class="hover:underline">UVIX</a>
+          </td>
+          <td class="px-4 py-3 font-mono text-zinc-200 text-sm">$6.99</td>
+          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+0.08%</span></td>
+          <td class="px-4 py-3 text-sm"><span class="text-zinc-500">N/A</span></td>
+          <td class="px-4 py-3 font-mono text-zinc-300 text-sm">3.13x</td>
+          <td class="px-4 py-3 text-xs text-zinc-400">Financial</td>
+          <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-zinc-800 text-zinc-400 border border-zinc-600">? N/A</span></td>
+        </tr>
+
+        <tr class="border-b border-zinc-800 hover:bg-zinc-800/40 transition-colors group">
+          <td class="px-4 py-3 font-mono font-bold text-sky-400 text-sm tracking-wider group-hover:text-sky-300">
+            <a href="https://finviz.com/quote.ashx?t=XCH" target="_blank" class="hover:underline">XCH</a>
+          </td>
+          <td class="px-4 py-3 font-mono text-zinc-200 text-sm">$1.22</td>
+          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+0.13%</span></td>
+          <td class="px-4 py-3 text-sm"><span class="text-zinc-500">N/A</span></td>
+          <td class="px-4 py-3 font-mono text-zinc-300 text-sm">5.32x</td>
+          <td class="px-4 py-3 text-xs text-zinc-400">Industrials</td>
+          <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-zinc-800 text-zinc-400 border border-zinc-600">? N/A</span></td>
+        </tr>
+
+        <tr class="border-b border-zinc-800 hover:bg-zinc-800/40 transition-colors group">
+          <td class="px-4 py-3 font-mono font-bold text-sky-400 text-sm tracking-wider group-hover:text-sky-300">
+            <a href="https://finviz.com/quote.ashx?t=XTIA" target="_blank" class="hover:underline">XTIA</a>
+          </td>
+          <td class="px-4 py-3 font-mono text-zinc-200 text-sm">$2.42</td>
+          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+0.22%</span></td>
+          <td class="px-4 py-3 text-sm"><span class="text-zinc-500">N/A</span></td>
+          <td class="px-4 py-3 font-mono text-zinc-300 text-sm">3.32x</td>
+          <td class="px-4 py-3 text-xs text-zinc-400">Industrials</td>
+          <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-zinc-800 text-zinc-400 border border-zinc-600">? N/A</span></td>
         </tr>
           </tbody>
         </table>
@@ -273,7 +717,7 @@
         <p class="text-xs text-zinc-500 font-mono">Gap &gt; 2% menținut · trend pozitiv confirmat</p>
       </div>
       <span class="ml-auto font-mono text-xs bg-emerald-950 border border-emerald-800 text-emerald-400 px-3 py-1 rounded-full">
-        3 STRONG BUY
+        0 STRONG BUY
       </span>
     </div>
     <div class="card overflow-hidden">
@@ -292,43 +736,10 @@
           </thead>
           <tbody>
             
-        <tr class="border-b border-zinc-800 hover:bg-zinc-800/40 transition-colors group">
-          <td class="px-4 py-3 font-mono font-bold text-emerald-400 text-sm tracking-wider group-hover:text-emerald-300">
-            <a href="https://finviz.com/quote.ashx?t=BBAI" target="_blank" class="hover:underline">BBAI</a>
-            <span class="ml-2 px-1.5 py-0.5 bg-emerald-900/50 border border-emerald-600 text-emerald-300 text-[10px] rounded font-bold">STRONG BUY</span>
+        <tr>
+          <td colspan="7" class="text-center py-12 text-zinc-500 font-mono text-sm">
+            Nu există validări — rulează scriptul la 16:45
           </td>
-          <td class="px-4 py-3 font-mono text-zinc-200 text-sm">$4.12</td>
-          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+18.70%</span></td>
-          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+5.80%</span></td>
-          <td class="px-4 py-3 font-mono text-zinc-300 text-sm">7.1x</td>
-          <td class="px-4 py-3 text-xs text-zinc-400">Technology</td>
-          <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-orange-900/60 text-orange-300 border border-orange-700">▲ HIGH</span></td>
-        </tr>
-
-        <tr class="border-b border-zinc-800 hover:bg-zinc-800/40 transition-colors group">
-          <td class="px-4 py-3 font-mono font-bold text-emerald-400 text-sm tracking-wider group-hover:text-emerald-300">
-            <a href="https://finviz.com/quote.ashx?t=NKLA" target="_blank" class="hover:underline">NKLA</a>
-            <span class="ml-2 px-1.5 py-0.5 bg-emerald-900/50 border border-emerald-600 text-emerald-300 text-[10px] rounded font-bold">STRONG BUY</span>
-          </td>
-          <td class="px-4 py-3 font-mono text-zinc-200 text-sm">$0.44</td>
-          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+22.40%</span></td>
-          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+7.30%</span></td>
-          <td class="px-4 py-3 font-mono text-zinc-300 text-sm">9.2x</td>
-          <td class="px-4 py-3 text-xs text-zinc-400">Industrials</td>
-          <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-red-900/60 text-red-300 border border-red-700">⚠ EXTREME</span></td>
-        </tr>
-
-        <tr class="border-b border-zinc-800 hover:bg-zinc-800/40 transition-colors group">
-          <td class="px-4 py-3 font-mono font-bold text-emerald-400 text-sm tracking-wider group-hover:text-emerald-300">
-            <a href="https://finviz.com/quote.ashx?t=MVST" target="_blank" class="hover:underline">MVST</a>
-            <span class="ml-2 px-1.5 py-0.5 bg-emerald-900/50 border border-emerald-600 text-emerald-300 text-[10px] rounded font-bold">STRONG BUY</span>
-          </td>
-          <td class="px-4 py-3 font-mono text-zinc-200 text-sm">$2.05</td>
-          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+14.10%</span></td>
-          <td class="px-4 py-3 text-sm"><span class="text-emerald-400 font-semibold">+4.10%</span></td>
-          <td class="px-4 py-3 font-mono text-zinc-300 text-sm">5.8x</td>
-          <td class="px-4 py-3 text-xs text-zinc-400">Consumer Cyclical</td>
-          <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-orange-900/60 text-orange-300 border border-orange-700">▲ HIGH</span></td>
         </tr>
           </tbody>
         </table>
@@ -340,7 +751,7 @@
   <footer class="border-t border-zinc-800 pt-6 mt-10">
     <div class="flex flex-col md:flex-row gap-2 justify-between items-center text-xs text-zinc-600 font-mono">
       <span>MarketPulse · powered by Finviz + GitHub Actions</span>
-      <span>Generat automat · 04 Mar 2026, 12:53 UTC</span>
+      <span>Generat automat · 04 Mar 2026, 13:14 UTC</span>
     </div>
   </footer>
 
