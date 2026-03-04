@@ -89,9 +89,19 @@ def enrich_ticker(ticker: str) -> dict:
 def risk_level(row: dict) -> str:
     """
     Compute risk badge based on 52-week performance.
-    If stock dropped >90% in past year → HIGH RISK.
+    Falls back to extracting % from 52w_high field (e.g. "16.99 -65.57%")
     """
     raw = row.get("52w_change", "") or row.get("52W Change", "") or ""
+
+    # If N/A, try extracting from 52w_high string e.g. "16.99 -65.57%"
+    if not raw or str(raw).strip() in ("N/A", "nan", ""):
+        high_raw = row.get("52w_high", "") or row.get("52W High", "") or ""
+        parts = str(high_raw).split()
+        for part in parts:
+            if "%" in part:
+                raw = part
+                break
+
     try:
         val = float(str(raw).replace("%", "").replace(",", "").strip())
         if val <= -90:
