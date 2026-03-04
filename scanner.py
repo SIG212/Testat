@@ -30,11 +30,14 @@ WATCHLIST_FILE = DATA_DIR / "watchlist_1615.json"
 FINAL_FILE     = DATA_DIR / "final_1645.json"
 
 # Finviz screener filters
-SCAN_FILTERS = {
-    "Price":            "Under $20",
-    "Relative Volume":  "Over 3",
-    "Change":           "Up 5%",
+SCAN_FILTERS_BASE = {
+    "Price":           "Under $20",
+    "Relative Volume": "Over 3",
+    "Change":          "Up 5%",
 }
+
+# Finviz exchange filter values (separate scans, merged after)
+EXCHANGES = ["NYSE", "NASDAQ", "AMEX"]
 
 VALIDATION_FILTERS = {
     "Gap":    "Up 2%",
@@ -127,16 +130,32 @@ def parse_pct(value) -> float:
 
 def scan_1615():
     log.info("=== SCAN 16:15 — Building Watchlist ===")
-    rows = get_overview(SCAN_FILTERS)
-    log.info(f"Found {len(rows)} candidates from screener")
+
+    all_rows = []
+    seen_tickers = set()
+
+    for exchange in EXCHANGES:
+        filters = {**SCAN_FILTERS_BASE, "Exchange": exchange}
+        log.info(f"Scanning {exchange}...")
+        rows = get_overview(filters)
+        log.info(f"  → {len(rows)} candidates from {exchange}")
+        polite_sleep(f"after {exchange} screener")
+
+        for row in rows:
+            ticker = str(row.get("Ticker", "")).strip()
+            if ticker and ticker not in seen_tickers:
+                seen_tickers.add(ticker)
+                all_rows.append(row)
+
+    log.info(f"Total unique candidates: {len(all_rows)}")
 
     watchlist = []
-    for i, row in enumerate(rows):
+    for i, row in enumerate(all_rows):
         ticker = str(row.get("Ticker", "")).strip()
         if not ticker:
             continue
 
-        polite_sleep(f"({i+1}/{len(rows)}) enriching {ticker}")
+        polite_sleep(f"({i+1}/{len(all_rows)}) enriching {ticker}")
         extra = enrich_ticker(ticker)
         combined = {**row, **extra}
         combined["risk"] = risk_level(combined)
