@@ -4,8 +4,8 @@ on:
   # ── Scheduled runs (UTC) ─────────────────────────────────────────────────────
   # Romania is UTC+3 (EET summer) → 16:15 RO = 13:15 UTC | 16:45 RO = 13:45 UTC
   schedule:
-    - cron: "15 13 * * 1-5"   # 16:15 RO — Scan inițial
-    - cron: "45 13 * * 1-5"   # 16:45 RO — Validare finală
+    - cron: "15 14 * * 1-5"   # 16:15 RO — Scan inițial
+    - cron: "45 14 * * 1-5"   # 16:45 RO — Validare finală
 
   # ── Manual trigger (util pentru testing) ─────────────────────────────────────
   workflow_dispatch:
