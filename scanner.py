@@ -1,17 +1,15 @@
 """
 Finviz Speculative Stock Scanner
-Scans at 16:15 RO (13:15 UTC) and validates at 16:45 RO (13:45 UTC)
+Scans at 15:15 RO (13:15 UTC) and validates at 15:45 RO (13:45 UTC)
 """
 
 import json
-import os
 import time
 import random
 import logging
 from datetime import datetime, timezone
 from pathlib import Path
 
-import yfinance as yf
 from finvizfinance.screener.overview import Overview
 from finvizfinance.quote import finvizfinance
 
@@ -30,22 +28,15 @@ DATA_DIR.mkdir(exist_ok=True)
 WATCHLIST_FILE = DATA_DIR / "watchlist_1615.json"
 FINAL_FILE     = DATA_DIR / "final_1645.json"
 
-# Finviz screener filters
 SCAN_FILTERS_BASE = {
     "Price":           "Under $20",
     "Relative Volume": "Over 3",
     "Change":          "Up 5%",
 }
 
-# Finviz exchange filter values (separate scans, merged after)
 EXCHANGES = ["NYSE", "NASDAQ", "AMEX"]
 
-VALIDATION_FILTERS = {
-    "Gap":    "Up 2%",
-    "Change": "Up",
-}
-
-SLEEP_MIN = 2.5   # seconds between requests (be polite to Finviz)
+SLEEP_MIN = 2.5
 SLEEP_MAX = 5.0
 
 
@@ -58,7 +49,6 @@ def polite_sleep(label: str = ""):
 
 
 def get_overview(filters: dict) -> list[dict]:
-    """Run a Finviz screener and return rows as list-of-dicts."""
     foverview = Overview()
     foverview.set_filter(filters_dict=filters)
     df = foverview.screener_view()
@@ -67,36 +57,21 @@ def get_overview(filters: dict) -> list[dict]:
     return df.to_dict(orient="records")
 
 
-def get_gap_pct(ticker: str) -> float:
-    """Calculate gap % from yfinance: (open - previous_close) / previous_close * 100"""
-    try:
-        info = yf.Ticker(ticker).info
-        open_price     = info.get("open") or info.get("regularMarketOpen") or 0
-        previous_close = info.get("previousClose") or info.get("regularMarketPreviousClose") or 0
-        if previous_close > 0 and open_price > 0:
-            return round(((open_price - previous_close) / previous_close) * 100, 2)
-    except Exception as e:
-        log.warning(f"yfinance gap error for {ticker}: {e}")
-    return 0.0
-
-
 def enrich_ticker(ticker: str) -> dict:
-    """Fetch per-ticker data from Finviz quote page."""
     try:
         stock = finvizfinance(ticker)
         info  = stock.ticker_fundament()
         return {
-            "52w_high":       info.get("52W High",       "N/A"),
-            "52w_low":        info.get("52W Low",        "N/A"),
-            "52w_change":     info.get("52W Change",     "N/A"),
-            "avg_volume":     info.get("Avg Volume",     "N/A"),
-            "rel_volume":     info.get("Rel Volume",     "N/A"),
-            "gap":            info.get("Gap",            "N/A"),
-            "price":          info.get("Price",          "N/A"),
-            "change":         info.get("Change",         "N/A"),
-            "industry":       info.get("Industry",       "N/A"),
-            "sector":         info.get("Sector",         "N/A"),
-            "description":    info.get("Description",   ""),
+            "52w_high":    info.get("52W High",   "N/A"),
+            "52w_low":     info.get("52W Low",    "N/A"),
+            "52w_change":  info.get("52W Change", "N/A"),
+            "avg_volume":  info.get("Avg Volume", "N/A"),
+            "rel_volume":  info.get("Rel Volume", "N/A"),
+            "gap":         info.get("Gap",        "N/A"),
+            "price":       info.get("Price",      "N/A"),
+            "change":      info.get("Change",     "N/A"),
+            "industry":    info.get("Industry",   "N/A"),
+            "sector":      info.get("Sector",     "N/A"),
         }
     except Exception as e:
         log.warning(f"Could not enrich {ticker}: {e}")
@@ -104,17 +79,12 @@ def enrich_ticker(ticker: str) -> dict:
 
 
 def risk_level(row: dict) -> str:
-    """
-    Compute risk badge based on 52-week performance.
-    Falls back to extracting % from 52w_high field (e.g. "16.99 -65.57%")
-    """
     raw = row.get("52w_change", "") or row.get("52W Change", "") or ""
 
-    # If N/A, try extracting from 52w_high string e.g. "16.99 -65.57%"
+    # Fallback: extract % from 52w_high string e.g. "16.99 -65.57%"
     if not raw or str(raw).strip() in ("N/A", "nan", ""):
         high_raw = row.get("52w_high", "") or row.get("52W High", "") or ""
-        parts = str(high_raw).split()
-        for part in parts:
+        for part in str(high_raw).split():
             if "%" in part:
                 raw = part
                 break
@@ -140,10 +110,10 @@ def parse_pct(value) -> float:
         return 0.0
 
 
-# ── Scan 16:15 ─────────────────────────────────────────────────────────────────
+# ── Scan 15:15 ─────────────────────────────────────────────────────────────────
 
 def scan_1615():
-    log.info("=== SCAN 16:15 — Building Watchlist ===")
+    log.info("=== SCAN 15:15 — Building Watchlist ===")
 
     all_rows = []
     seen_tickers = set()
@@ -152,7 +122,7 @@ def scan_1615():
         filters = {**SCAN_FILTERS_BASE, "Exchange": exchange}
         log.info(f"Scanning {exchange}...")
         rows = get_overview(filters)
-        log.info(f"  → {len(rows)} candidates from {exchange}")
+        log.info(f"  -> {len(rows)} candidates from {exchange}")
         polite_sleep(f"after {exchange} screener")
 
         for row in rows:
@@ -171,42 +141,39 @@ def scan_1615():
 
         polite_sleep(f"({i+1}/{len(all_rows)}) enriching {ticker}")
         extra = enrich_ticker(ticker)
-        gap_pct = get_gap_pct(ticker)
         combined = {**row, **extra}
-        combined["gap"]      = f"{gap_pct:+.2f}%"
-        combined["gap_pct"]  = gap_pct
-        combined["risk"]     = risk_level(combined)
+        combined["risk"]      = risk_level(combined)
         combined["scan_time"] = datetime.now(timezone.utc).isoformat()
         watchlist.append(combined)
 
     with open(WATCHLIST_FILE, "w") as f:
         json.dump(watchlist, f, indent=2, default=str)
 
-    log.info(f"Watchlist saved → {WATCHLIST_FILE} ({len(watchlist)} tickers)")
+    log.info(f"Watchlist saved -> {WATCHLIST_FILE} ({len(watchlist)} tickers)")
     return watchlist
 
 
-# ── Validate 16:45 ─────────────────────────────────────────────────────────────
+# ── Validate 15:45 ─────────────────────────────────────────────────────────────
 
 def validate_1645():
-    log.info("=== VALIDATE 16:45 — Strong Buy Selection ===")
+    log.info("=== VALIDATE 15:45 — Strong Buy Selection ===")
 
     if not WATCHLIST_FILE.exists():
-        log.error("Watchlist file not found — run scan_1615 first!")
+        log.error("Watchlist file not found — run scan first!")
         return []
 
     with open(WATCHLIST_FILE) as f:
         watchlist = json.load(f)
 
-    tickers = [r.get("Ticker") or r.get("ticker") for r in watchlist if r.get("Ticker") or r.get("ticker")]
+    tickers = [r.get("Ticker") for r in watchlist if r.get("Ticker")]
     log.info(f"Re-validating {len(tickers)} tickers from watchlist")
 
     strong_buys = []
     for i, ticker in enumerate(tickers):
         polite_sleep(f"({i+1}/{len(tickers)}) re-checking {ticker}")
         try:
-            extra = enrich_ticker(ticker)
-            gap_pct    = get_gap_pct(ticker)
+            extra      = enrich_ticker(ticker)
+            gap_pct    = parse_pct(extra.get("gap",    "0"))
             change_pct = parse_pct(extra.get("change", "0"))
 
             if gap_pct >= 2.0 and change_pct > 0:
@@ -214,7 +181,7 @@ def validate_1645():
                     "Ticker":     ticker,
                     "Price":      extra.get("price",      "N/A"),
                     "Change":     extra.get("change",     "N/A"),
-                    "Gap":        f"{gap_pct:+.2f}%",
+                    "Gap":        extra.get("gap",        "N/A"),
                     "Rel Volume": extra.get("rel_volume", "N/A"),
                     "52W Change": extra.get("52w_change", "N/A"),
                     "Industry":   extra.get("industry",   "N/A"),
@@ -224,9 +191,9 @@ def validate_1645():
                     "validated_time": datetime.now(timezone.utc).isoformat(),
                 }
                 strong_buys.append(record)
-                log.info(f"  ✅ STRONG BUY: {ticker} | Gap {gap_pct:.1f}% | Change {change_pct:.1f}%")
+                log.info(f"  STRONG BUY: {ticker} | Gap {gap_pct:.1f}% | Change {change_pct:.1f}%")
             else:
-                log.info(f"  ❌ Skipped: {ticker} | Gap {gap_pct:.1f}% | Change {change_pct:.1f}%")
+                log.info(f"  Skipped: {ticker} | Gap {gap_pct:.1f}% | Change {change_pct:.1f}%")
 
         except Exception as e:
             log.warning(f"Error validating {ticker}: {e}")
@@ -234,7 +201,7 @@ def validate_1645():
     with open(FINAL_FILE, "w") as f:
         json.dump(strong_buys, f, indent=2, default=str)
 
-    log.info(f"Final saved → {FINAL_FILE} ({len(strong_buys)} STRONG BUY)")
+    log.info(f"Final saved -> {FINAL_FILE} ({len(strong_buys)} STRONG BUY)")
     return strong_buys
 
 
