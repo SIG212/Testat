@@ -1,0 +1,189 @@
+name: Finviz Scanner — Auto Scan & Deploy
+
+on:
+  # ── Scheduled runs (UTC) ─────────────────────────────────────────────────────
+  # Romania is UTC+3 (EET summer) → 16:15 RO = 13:15 UTC | 16:45 RO = 13:45 UTC
+  schedule:
+    - cron: "15 13 * * 1-5"   # 16:15 RO — Scan inițial
+    - cron: "45 13 * * 1-5"   # 16:45 RO — Validare finală
+
+  # ── Manual trigger (util pentru testing) ─────────────────────────────────────
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "Mod rulare"
+        required: true
+        default: "scan"
+        type: choice
+        options:
+          - scan       # doar scan 16:15
+          - validate   # doar validare 16:45
+          - both       # scan + sleep + validate (pentru test manual)
+
+env:
+  PYTHON_VERSION: "3.11"
+
+# ── Jobs ──────────────────────────────────────────────────────────────────────
+jobs:
+
+  # ────────────────────────────────────────────────────────────────────────────
+  # JOB 1: Scan 16:15 — rulat la cron "15 13 * * 1-5"
+  # ────────────────────────────────────────────────────────────────────────────
+  scan-1615:
+    name: "📡 Scan 16:15 — Build Watchlist"
+    runs-on: ubuntu-latest
+    if: |
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'schedule' && contains(github.event.schedule, '15 13'))
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Python ${{ env.PYTHON_VERSION }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Create data directory
+        run: mkdir -p data
+
+      - name: Run scanner (scan mode)
+        env:
+          PYTHONUNBUFFERED: "1"
+        run: |
+          MODE="${{ github.event.inputs.mode || 'scan' }}"
+          echo "Running in mode: $MODE"
+          python scanner.py $MODE
+
+      - name: Generate dashboard HTML
+        run: python generate_html.py
+
+      - name: Commit & push results
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add data/watchlist_1615.json index.html
+
+          # Commit only if there are changes
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "🔍 Scan 16:15 — $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git push origin HEAD
+          fi
+
+      - name: Upload artifacts (backup)
+        uses: actions/upload-artifact@v4
+        with:
+          name: watchlist-1615-${{ github.run_number }}
+          path: |
+            data/watchlist_1615.json
+            index.html
+          retention-days: 7
+
+  # ────────────────────────────────────────────────────────────────────────────
+  # JOB 2: Validate 16:45 — rulat la cron "45 13 * * 1-5"
+  # ────────────────────────────────────────────────────────────────────────────
+  validate-1645:
+    name: "✅ Validate 16:45 — Strong Buy Selection"
+    runs-on: ubuntu-latest
+    if: |
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'schedule' && contains(github.event.schedule, '45 13'))
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Pull latest (get watchlist from scan job)
+        run: git pull origin HEAD
+
+      - name: Setup Python ${{ env.PYTHON_VERSION }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Create data directory
+        run: mkdir -p data
+
+      - name: Check watchlist exists
+        run: |
+          if [ ! -f data/watchlist_1615.json ]; then
+            echo "⚠️ Watchlist not found! Running scan first..."
+            python scanner.py scan
+          else
+            echo "✅ Watchlist found."
+            cat data/watchlist_1615.json | python -c "import json,sys; d=json.load(sys.stdin); print(f'  → {len(d)} tickers in watchlist')"
+          fi
+
+      - name: Run validation
+        env:
+          PYTHONUNBUFFERED: "1"
+        run: python scanner.py validate
+
+      - name: Generate dashboard HTML
+        run: python generate_html.py
+
+      - name: Commit & push results
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add data/final_1645.json index.html
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "🚀 Validate 16:45 — $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git push origin HEAD
+          fi
+
+      - name: Upload artifacts (backup)
+        uses: actions/upload-artifact@v4
+        with:
+          name: strong-buy-1645-${{ github.run_number }}
+          path: |
+            data/final_1645.json
+            index.html
+          retention-days: 7
+
+      - name: Summary
+        run: |
+          echo "## 📊 Scan Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if [ -f data/final_1645.json ]; then
+            COUNT=$(cat data/final_1645.json | python -c "import json,sys; d=json.load(sys.stdin); print(len(d))")
+            echo "**STRONG BUY tickers: $COUNT**" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            cat data/final_1645.json | python -c "
+          import json, sys
+          data = json.load(sys.stdin)
+          if data:
+              print('| Ticker | Price | Change | Gap | Risk |')
+              print('|--------|-------|--------|-----|------|')
+              for r in data:
+                  print(f\"| {r.get('Ticker','?')} | {r.get('Price','?')} | {r.get('Change','?')} | {r.get('Gap','?')} | {r.get('risk','?')} |\")
+          else:
+              print('No STRONG BUY tickers found today.')
+            " >> $GITHUB_STEP_SUMMARY
+          fi
