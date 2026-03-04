@@ -22,7 +22,7 @@
     "sector": "Financial",
     "description": "",
     "risk": "UNKNOWN",
-    "scan_time": "2026-03-04T13:11:27.940361+00:00"
+    "scan_time": "2026-03-04T13:21:15.031359+00:00"
   },
   {
     "Ticker": "AURE",
@@ -47,7 +47,7 @@
     "sector": "Financial",
     "description": "",
     "risk": "UNKNOWN",
-    "scan_time": "2026-03-04T13:11:31.594712+00:00"
+    "scan_time": "2026-03-04T13:21:18.359408+00:00"
   },
   {
     "Ticker": "AVXX",
@@ -72,7 +72,7 @@
     "sector": "Financial",
     "description": "",
     "risk": "UNKNOWN",
-    "scan_time": "2026-03-04T13:11:35.027634+00:00"
+    "scan_time": "2026-03-04T13:21:22.085383+00:00"
   },
   {
     "Ticker": "BHM",
@@ -97,7 +97,7 @@
     "sector": "Real Estate",
     "description": "",
     "risk": "UNKNOWN",
-    "scan_time": "2026-03-04T13:11:38.812411+00:00"
+    "scan_time": "2026-03-04T13:21:26.838805+00:00"
   },
   {
     "Ticker": "BRCC",
@@ -122,7 +122,7 @@
     "sector": "Consumer Defensive",
     "description": "",
     "risk": "UNKNOWN",
-    "scan_time": "2026-03-04T13:11:41.684535+00:00"
+    "scan_time": "2026-03-04T13:21:31.894195+00:00"
   },
   {
     "Ticker": "BZQ",
@@ -147,7 +147,7 @@
     "sector": "Financial",
     "description": "",
     "risk": "UNKNOWN",
-    "scan_time": "2026-03-04T13:11:44.969785+00:00"
+    "scan_time": "2026-03-04T13:21:34.673874+00:00"
   },
   {
     "Ticker": "CCUP",
@@ -172,7 +172,7 @@
     "sector": "Financial",
     "description": "",
     "risk": "UNKNOWN",
-    "scan_time": "2026-03-04T13:11:49.041999+00:00"
+    "scan_time": "2026-03-04T13:21:38.891540+00:00"
   },
   {
     "Ticker": "CLWT",
@@ -197,7 +197,7 @@
     "sector": "Industrials",
     "description": "",
     "risk": "UNKNOWN",
-    "scan_time": "2026-03-04T13:11:53.010498+00:00"
+    "scan_time": "2026-03-04T13:21:42.427767+00:00"
   },
   {
     "Ticker": "CRCG",
@@ -222,7 +222,7 @@
     "sector": "Financial",
     "description": "",
     "risk": "UNKNOWN",
-    "scan_time": "2026-03-04T13:11:56.518520+00:00"
+    "scan_time": "2026-03-04T13:21:46.146404+00:00"
   },
   {
     "Ticker": "EDSA",
@@ -247,7 +247,7 @@
     "sector": "Healthcare",
     "description": "",
     "risk": "UNKNOWN",
-    "scan_time": "2026-03-04T13:12:01.114199+00:00"
+    "scan_time": "2026-03-04T13:21:49.677997+00:00"
   },
   {
     "Ticker": "EEV",
@@ -272,7 +272,7 @@
     "sector": "Financial",
     "description": "",
     "risk": "UNKNOWN",
-    "scan_time": "2026-03-04T13:12:06.195469+00:00"
+    "scan_time": "2026-03-04T13:21:53.025130+00:00"
   },
   {
     "Ticker": "EFU",
@@ -297,7 +297,7 @@
     "sector": "Financial",
     "description": "",
     "risk": "UNKNOWN",
-    "scan_time": "2026-03-04T13:12:10.670709+00:00"
+    "scan_time": "2026-03-04T13:21:55.697929+00:00"
   },
   {
     "Ticker": "EHTH",
@@ -322,7 +322,7 @@
     "sector": "Financial",
     "description": "",
     "risk": "UNKNOWN",
-    "scan_time": "2026-03-04T13:12:14.780826+00:00"
+    "scan_time": "2026-03-04T13:21:58.764283+00:00"
   },
   {
     "Ticker": "EONR",
@@ -347,7 +347,7 @@
     "sector": "Energy",
     "description": "",
     "risk": "UNKNOWN",
-    "scan_time": "2026-03-04T13:12:17.600414+00:00"
+    "scan_time": "2026-03-04T13:22:02.026863+00:00"
   },
   {
     "Ticker": "EP",
@@ -372,7 +372,7 @@
     "sector": "Energy",
     "description": "",
     "risk": "UNKNOWN",
-    "scan_time": "2026-03-04T13:12:22.417912+00:00"
+    "scan_time": "2026-03-04T13:22:06.192757+00:00"
   },
   {
     "Ticker": "GXAI",
@@ -397,7 +397,7 @@
     "sector": "Communication Services",
     "description": "",
     "risk": "UNKNOWN",
-    "scan_time": "2026-03-04T13:12:25.823212+00:00"
+    "scan_time": "2026-03-04T13:22:10.838206+00:00"
   },
   {
     "Ticker": "HCWB",
@@ -422,7 +422,7 @@
     "sector": "Healthcare",
     "description": "",
     "risk": "UNKNOWN",
-    "scan_time": "2026-03-04T13:12:30.652795+00:00"
+    "scan_time": "2026-03-04T13:22:15.424279+00:00"
   },
   {
     "Ticker": "HIBS",
@@ -447,7 +447,7 @@
     "sector": "Financial",
     "description": "",
     "risk": "UNKNOWN",
-    "scan_time": "2026-03-04T13:12:35.343369+00:00"
+    "scan_time": "2026-03-04T13:22:19.389374+00:00"
   },
   {
     "Ticker": "LAW",
@@ -472,7 +472,7 @@
     "sector": "Technology",
     "description": "",
     "risk": "UNKNOWN",
-    "scan_time": "2026-03-04T13:12:38.209236+00:00"
+    "scan_time": "2026-03-04T13:22:23.045752+00:00"
   },
   {
     "Ticker": "MARPS",
@@ -497,7 +497,7 @@
     "sector": "Energy",
     "description": "",
     "risk": "UNKNOWN",
-    "scan_time": "2026-03-04T13:12:41.996157+00:00"
+    "scan_time": "2026-03-04T13:22:27.196447+00:00"
   },
   {
     "Ticker": "MGN",
@@ -522,7 +522,7 @@
     "sector": "Industrials",
     "description": "",
     "risk": "UNKNOWN",
-    "scan_time": "2026-03-04T13:12:45.598793+00:00"
+    "scan_time": "2026-03-04T13:22:31.272143+00:00"
   },
   {
     "Ticker": "MOBX",
@@ -547,7 +547,7 @@
     "sector": "Technology",
     "description": "",
     "risk": "UNKNOWN",
-    "scan_time": "2026-03-04T13:12:50.584127+00:00"
+    "scan_time": "2026-03-04T13:22:35.790708+00:00"
   },
   {
     "Ticker": "MODD",
@@ -572,7 +572,7 @@
     "sector": "Healthcare",
     "description": "",
     "risk": "UNKNOWN",
-    "scan_time": "2026-03-04T13:12:53.735149+00:00"
+    "scan_time": "2026-03-04T13:22:38.702475+00:00"
   },
   {
     "Ticker": "NPT",
@@ -597,7 +597,7 @@
     "sector": "Consumer Cyclical",
     "description": "",
     "risk": "UNKNOWN",
-    "scan_time": "2026-03-04T13:12:57.136160+00:00"
+    "scan_time": "2026-03-04T13:22:42.334818+00:00"
   },
   {
     "Ticker": "ONCO",
@@ -622,7 +622,7 @@
     "sector": "Healthcare",
     "description": "",
     "risk": "UNKNOWN",
-    "scan_time": "2026-03-04T13:13:01.852616+00:00"
+    "scan_time": "2026-03-04T13:22:45.894141+00:00"
   },
   {
     "Ticker": "PLUL",
@@ -647,7 +647,7 @@
     "sector": "Financial",
     "description": "",
     "risk": "UNKNOWN",
-    "scan_time": "2026-03-04T13:13:04.858387+00:00"
+    "scan_time": "2026-03-04T13:22:49.669857+00:00"
   },
   {
     "Ticker": "PRSO",
@@ -672,7 +672,7 @@
     "sector": "Technology",
     "description": "",
     "risk": "UNKNOWN",
-    "scan_time": "2026-03-04T13:13:08.047158+00:00"
+    "scan_time": "2026-03-04T13:22:54.775671+00:00"
   },
   {
     "Ticker": "PULM",
@@ -697,7 +697,7 @@
     "sector": "Healthcare",
     "description": "",
     "risk": "UNKNOWN",
-    "scan_time": "2026-03-04T13:13:11.109782+00:00"
+    "scan_time": "2026-03-04T13:22:59.266467+00:00"
   },
   {
     "Ticker": "RCAT",
@@ -722,7 +722,7 @@
     "sector": "Industrials",
     "description": "",
     "risk": "UNKNOWN",
-    "scan_time": "2026-03-04T13:13:15.023626+00:00"
+    "scan_time": "2026-03-04T13:23:02.679934+00:00"
   },
   {
     "Ticker": "RUBI",
@@ -747,7 +747,7 @@
     "sector": "Industrials",
     "description": "",
     "risk": "UNKNOWN",
-    "scan_time": "2026-03-04T13:13:18.486392+00:00"
+    "scan_time": "2026-03-04T13:23:06.240553+00:00"
   },
   {
     "Ticker": "RYOJ",
@@ -772,7 +772,7 @@
     "sector": "Industrials",
     "description": "",
     "risk": "UNKNOWN",
-    "scan_time": "2026-03-04T13:13:22.123412+00:00"
+    "scan_time": "2026-03-04T13:23:09.600149+00:00"
   },
   {
     "Ticker": "SEM",
@@ -797,7 +797,7 @@
     "sector": "Healthcare",
     "description": "",
     "risk": "UNKNOWN",
-    "scan_time": "2026-03-04T13:13:25.368063+00:00"
+    "scan_time": "2026-03-04T13:23:14.405861+00:00"
   },
   {
     "Ticker": "SPWH",
@@ -822,7 +822,7 @@
     "sector": "Consumer Cyclical",
     "description": "",
     "risk": "UNKNOWN",
-    "scan_time": "2026-03-04T13:13:30.322507+00:00"
+    "scan_time": "2026-03-04T13:23:18.096280+00:00"
   },
   {
     "Ticker": "STSM",
@@ -847,7 +847,7 @@
     "sector": "Financial",
     "description": "",
     "risk": "UNKNOWN",
-    "scan_time": "2026-03-04T13:13:34.035488+00:00"
+    "scan_time": "2026-03-04T13:23:22.674405+00:00"
   },
   {
     "Ticker": "SVRN",
@@ -872,7 +872,7 @@
     "sector": "Industrials",
     "description": "",
     "risk": "UNKNOWN",
-    "scan_time": "2026-03-04T13:13:37.434296+00:00"
+    "scan_time": "2026-03-04T13:23:25.488493+00:00"
   },
   {
     "Ticker": "SYNX",
@@ -897,7 +897,7 @@
     "sector": "Technology",
     "description": "",
     "risk": "UNKNOWN",
-    "scan_time": "2026-03-04T13:13:40.847511+00:00"
+    "scan_time": "2026-03-04T13:23:28.963190+00:00"
   },
   {
     "Ticker": "TMDE",
@@ -922,7 +922,7 @@
     "sector": "Energy",
     "description": "",
     "risk": "UNKNOWN",
-    "scan_time": "2026-03-04T13:13:43.983945+00:00"
+    "scan_time": "2026-03-04T13:23:33.067949+00:00"
   },
   {
     "Ticker": "TPET",
@@ -947,7 +947,7 @@
     "sector": "Energy",
     "description": "",
     "risk": "UNKNOWN",
-    "scan_time": "2026-03-04T13:13:48.478119+00:00"
+    "scan_time": "2026-03-04T13:23:35.846942+00:00"
   },
   {
     "Ticker": "TURB",
@@ -972,7 +972,7 @@
     "sector": "Technology",
     "description": "",
     "risk": "UNKNOWN",
-    "scan_time": "2026-03-04T13:13:52.051175+00:00"
+    "scan_time": "2026-03-04T13:23:39.547995+00:00"
   },
   {
     "Ticker": "UOKA",
@@ -997,7 +997,7 @@
     "sector": "Consumer Cyclical",
     "description": "",
     "risk": "UNKNOWN",
-    "scan_time": "2026-03-04T13:13:57.099427+00:00"
+    "scan_time": "2026-03-04T13:23:43.746199+00:00"
   },
   {
     "Ticker": "USEG",
@@ -1022,7 +1022,7 @@
     "sector": "Energy",
     "description": "",
     "risk": "UNKNOWN",
-    "scan_time": "2026-03-04T13:14:00.154805+00:00"
+    "scan_time": "2026-03-04T13:23:47.009036+00:00"
   },
   {
     "Ticker": "UVIX",
@@ -1047,7 +1047,7 @@
     "sector": "Financial",
     "description": "",
     "risk": "UNKNOWN",
-    "scan_time": "2026-03-04T13:14:03.223791+00:00"
+    "scan_time": "2026-03-04T13:23:51.729234+00:00"
   },
   {
     "Ticker": "XCH",
@@ -1072,7 +1072,7 @@
     "sector": "Industrials",
     "description": "",
     "risk": "UNKNOWN",
-    "scan_time": "2026-03-04T13:14:06.978098+00:00"
+    "scan_time": "2026-03-04T13:23:54.894813+00:00"
   },
   {
     "Ticker": "XTIA",
@@ -1097,6 +1097,6 @@
     "sector": "Industrials",
     "description": "",
     "risk": "UNKNOWN",
-    "scan_time": "2026-03-04T13:14:10.412359+00:00"
+    "scan_time": "2026-03-04T13:23:58.974977+00:00"
   }
 ]
