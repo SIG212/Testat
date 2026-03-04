@@ -11,6 +11,7 @@ import logging
 from datetime import datetime, timezone
 from pathlib import Path
 
+import yfinance as yf
 from finvizfinance.screener.overview import Overview
 from finvizfinance.quote import finvizfinance
 
@@ -64,6 +65,19 @@ def get_overview(filters: dict) -> list[dict]:
     if df is None or df.empty:
         return []
     return df.to_dict(orient="records")
+
+
+def get_gap_pct(ticker: str) -> float:
+    """Calculate gap % from yfinance: (open - previous_close) / previous_close * 100"""
+    try:
+        info = yf.Ticker(ticker).info
+        open_price     = info.get("open") or info.get("regularMarketOpen") or 0
+        previous_close = info.get("previousClose") or info.get("regularMarketPreviousClose") or 0
+        if previous_close > 0 and open_price > 0:
+            return round(((open_price - previous_close) / previous_close) * 100, 2)
+    except Exception as e:
+        log.warning(f"yfinance gap error for {ticker}: {e}")
+    return 0.0
 
 
 def enrich_ticker(ticker: str) -> dict:
@@ -157,8 +171,11 @@ def scan_1615():
 
         polite_sleep(f"({i+1}/{len(all_rows)}) enriching {ticker}")
         extra = enrich_ticker(ticker)
+        gap_pct = get_gap_pct(ticker)
         combined = {**row, **extra}
-        combined["risk"] = risk_level(combined)
+        combined["gap"]      = f"{gap_pct:+.2f}%"
+        combined["gap_pct"]  = gap_pct
+        combined["risk"]     = risk_level(combined)
         combined["scan_time"] = datetime.now(timezone.utc).isoformat()
         watchlist.append(combined)
 
@@ -189,8 +206,7 @@ def validate_1645():
         polite_sleep(f"({i+1}/{len(tickers)}) re-checking {ticker}")
         try:
             extra = enrich_ticker(ticker)
-
-            gap_pct    = parse_pct(extra.get("gap",    "0"))
+            gap_pct    = get_gap_pct(ticker)
             change_pct = parse_pct(extra.get("change", "0"))
 
             if gap_pct >= 2.0 and change_pct > 0:
@@ -198,7 +214,7 @@ def validate_1645():
                     "Ticker":     ticker,
                     "Price":      extra.get("price",      "N/A"),
                     "Change":     extra.get("change",     "N/A"),
-                    "Gap":        extra.get("gap",        "N/A"),
+                    "Gap":        f"{gap_pct:+.2f}%",
                     "Rel Volume": extra.get("rel_volume", "N/A"),
                     "52W Change": extra.get("52w_change", "N/A"),
                     "Industry":   extra.get("industry",   "N/A"),
