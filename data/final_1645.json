@@ -1,1 +1,67 @@
-[]
+[
+  {
+    "Ticker": "LAW",
+    "Price": "4.25",
+    "Change": "8.14%",
+    "Gap": "N/A",
+    "Rel Volume": "2.69",
+    "52W Change": "N/A",
+    "Industry": "Software - Application",
+    "Sector": "Technology",
+    "risk": "MEDIUM",
+    "status": "STRONG BUY",
+    "validated_time": "2026-03-04T15:20:21.165047+00:00"
+  },
+  {
+    "Ticker": "CRCG",
+    "Price": "3.70",
+    "Change": "11.09%",
+    "Gap": "N/A",
+    "Rel Volume": "8.34",
+    "52W Change": "N/A",
+    "Industry": "Exchange Traded Fund",
+    "Sector": "Financial",
+    "risk": "HIGH",
+    "status": "STRONG BUY",
+    "validated_time": "2026-03-04T15:20:48.697139+00:00"
+  },
+  {
+    "Ticker": "EHTH",
+    "Price": "1.80",
+    "Change": "15.29%",
+    "Gap": "N/A",
+    "Rel Volume": "6.92",
+    "52W Change": "N/A",
+    "Industry": "Insurance Brokers",
+    "Sector": "Financial",
+    "risk": "HIGH",
+    "status": "STRONG BUY",
+    "validated_time": "2026-03-04T15:20:57.802167+00:00"
+  },
+  {
+    "Ticker": "NPT",
+    "Price": "13.10",
+    "Change": "27.43%",
+    "Gap": "N/A",
+    "Rel Volume": "4.26",
+    "52W Change": "N/A",
+    "Industry": "Specialty Retail",
+    "Sector": "Consumer Cyclical",
+    "risk": "LOW",
+    "status": "STRONG BUY",
+    "validated_time": "2026-03-04T15:21:25.066284+00:00"
+  },
+  {
+    "Ticker": "PLUL",
+    "Price": "13.65",
+    "Change": "11.80%",
+    "Gap": "N/A",
+    "Rel Volume": "12.01",
+    "52W Change": "N/A",
+    "Industry": "Exchange Traded Fund",
+    "Sector": "Financial",
+    "risk": "LOW",
+    "status": "STRONG BUY",
+    "validated_time": "2026-03-04T15:21:31.962736+00:00"
+  }
+]
