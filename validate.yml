@@ -1,0 +1,85 @@
+name: Finviz Scanner — Validate & Strong Buy
+
+on:
+  schedule:
+    - cron: "45 13 * * 1-5"   # 15:45 RO iarna / 16:45 RO vara
+  workflow_dispatch:
+
+env:
+  PYTHON_VERSION: "3.11"
+
+jobs:
+  validate-1645:
+    name: "✅ Validate — Strong Buy Selection"
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Pull latest
+        run: git pull origin HEAD
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Create data directory
+        run: mkdir -p data
+
+      - name: Check watchlist
+        run: |
+          if [ ! -f data/watchlist_1615.json ]; then
+            echo "Watchlist missing — running scan first..."
+            python scanner.py scan
+          else
+            COUNT=$(python -c "import json; d=json.load(open('data/watchlist_1615.json')); print(len(d))")
+            echo "Watchlist found: $COUNT tickers"
+          fi
+
+      - name: Run validation
+        run: python scanner.py validate
+
+      - name: Generate dashboard
+        run: python generate_html.py
+
+      - name: Commit & push
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/final_1645.json index.html
+          if git diff --cached --quiet; then
+            echo "No changes."
+          else
+            git commit -m "✅ Validate — $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git pull origin main
+            git push --force-with-lease origin HEAD
+          fi
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: strong-buy-${{ github.run_number }}
+          path: data/final_1645.json
+          retention-days: 7
+
+      - name: Summary
+        run: |
+          echo "## Strong Buy Summary" >> $GITHUB_STEP_SUMMARY
+          if [ -f data/final_1645.json ]; then
+            python -c "
+          import json
+          data = json.load(open('data/final_1645.json'))
+          print(f'**Total STRONG BUY: {len(data)}**\n')
+          if data:
+              print('| Ticker | Price | Change | Risk |')
+              print('|--------|-------|--------|------|')
+              for r in data:
+                  print(f\"| {r.get('Ticker','?')} | {r.get('Price','?')} | {r.get('Change','?')} | {r.get('risk','?')} |\")
+            " >> $GITHUB_STEP_SUMMARY
+          fi
